@@ -43,5 +43,16 @@ namespace Stack_QueueProblem
                 temp = temp.next;
             }
         }
+        public void Dequeue()
+        {
+            if (head == null)
+            {
+                Console.WriteLine(" queue is empty :");
+            }
+            else
+            {
+                head = head.next;
+            }
+        }
     }
 }

@@ -15,6 +15,9 @@ namespace Stack_QueueProblem
             queueOperations.Enqueue(30);
             queueOperations.Enqueue(70);
             queueOperations.Display();
+            Console.WriteLine("-------");
+            queueOperations.Dequeue();
+            queueOperations.Display();
 
             Console.ReadLine();
         }
