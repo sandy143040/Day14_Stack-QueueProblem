@@ -1,39 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Stack_QueueProblem
 {
-    public class StackOperations<T>
+    public class StackOperations
     {
-        public Node<T> top;
-        public void Push(T data)
+        public Node head;
+        public StackOperations()
         {
-            Node<T> newNode = new Node<T>(data);
-            if(top == null)
+            head = null;
+        }
+        public bool IsEmpty()
+        {
+            return head == null;
+        }
+        public void Push(int data)
+        {
+            Node newNode = new Node(data);
+            if(IsEmpty())
             {
-                top = newNode;
+                head = newNode;
+                return;
             }
             else
             {
-                newNode.next = top;
-                top = newNode;
+                newNode.next = head;
+                head = newNode;
             }
         }
-        public void Display()
+        public int Peek()
         {
-            Node<T> temp = top;
-            if(top == null)
+            if(IsEmpty())
             {
-                Console.WriteLine("Stack is Empty");
+                 return -1;
             }
-            while(temp != null)
+             return head.data;
+        }
+        public int Pop()
+        {
+            if (IsEmpty())
             {
-                Console.WriteLine(temp.data);
-                temp = temp.next;
+                return -1;
             }
+            int top = head.data;
+            head = head.next;
+            return top;
         }
     }
 }

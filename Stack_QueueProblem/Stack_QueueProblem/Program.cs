@@ -10,11 +10,16 @@ namespace Stack_QueueProblem
     {
         static void Main(string[] args)
         {
-            StackOperations<int> stackOperations = new StackOperations<int>();
+            StackOperations stackOperations = new StackOperations();
             stackOperations.Push(70);
             stackOperations.Push(30);
             stackOperations.Push(56);
-            stackOperations.Display();
+            
+            while(!stackOperations.IsEmpty())
+            {
+                Console.WriteLine(stackOperations.Peek());
+                stackOperations.Pop();
+            }
 
             Console.ReadLine();
         }
